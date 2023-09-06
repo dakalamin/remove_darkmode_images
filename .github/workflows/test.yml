@@ -2,7 +2,9 @@ name: Python tests
 
 on:
   push:
-    paths: '**.py'
+    paths:
+      - '**.py'
+      - '.github/workflows/test.yml'
 
 jobs:
   tests:
