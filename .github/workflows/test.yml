@@ -6,6 +6,11 @@ on:
 
 jobs:
   tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9, 3.10, 3.11]
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -13,6 +18,8 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
       - name: Run tests
         run: |
